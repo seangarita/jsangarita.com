@@ -1,0 +1,135 @@
+{
+  "dataArray": [
+    {
+      "sectionName": "Experience",
+      "sectionData":[
+        {
+          "name": "Mixmax",
+          "jobTitle": "Full-Stack Software Engineer",
+          "location": "San Francisco, CA (Remote)",
+          "startDate": "aug-2016",
+          "endDate": "jan-2017",
+          "accomplishments": [
+            "Owned billing section of the product.",
+            "Improved robustness of billing backend.",
+            "Prevented customer double purchases.",
+            "Added paper trail to billing events.",
+            "Ensured integrity of trial accounts.",
+            "Lead migration from a manual to an automated billing process for enterprise customers.",
+            "Translated outdated parts of product from Meteor to Backbone.js."
+          ],
+          "technologies": [
+            "Javscript",
+            "Node.js",
+            "Backbone.js",
+            "Meteor",
+            "MongoDB"
+          ]
+        },
+        {
+          "name": "Foursquare",
+          "jobTitle": "iOS Engineer",
+          "location": "New York, NY",
+          "startDate": "apr-2016",
+          "endDate": "aug-2016",
+          "accomplishments": [
+            "Rebuilt the History tab of the Foursquare app and added animations and more features.",
+            "Built the native Add Venue flow in the app.",
+            "Worked closely with designers to prototype the new Homescreen of the app.",
+            "Built the full stack for iOS 10 rich notifications which got the app featured on the AppStore."
+          ],
+          "technologies": [
+            "iOS",
+            "Objective C",
+            "Auto Layout",
+            "Masonry"
+          ]
+        },
+        {
+          "name": "Foursquare",
+          "jobTitle": "Server Engineer",
+          "location": "San Francisco, CA",
+          "startDate": "oct-2014",
+          "endDate": "apr-2016",
+          "accomplishments": [
+            "Generated offline Venue recommendations using Scalding and MapReduce.",
+            "Generated online realtime Venue recommendations using precomputed datasets.",
+            "Rewrote impression tracking system with in-memory and on-disk components for efficiency.",
+            "Updated push recommendations stack to support the iOS 10 rich notification payload."
+          ],
+          "technologies": [
+            "Scala",
+            "Hadoop MapReduce",
+            "Scalding",
+            "Python"
+          ]
+        },
+        {
+          "name": "Up Living",
+          "jobTitle": "Software Engineer & PM",
+          "location": "Miami, FL",
+          "startDate": "jun-2012",
+          "endDate": "sep-2012",
+          "accomplishments": [
+            "Designed and implemented real-estate web application.",
+            "Conducted market research to determine UX decisions.",
+            "Lead negotiation with clients and ensured quality and profitability of work.",
+            "Lead meetings with clients to ensure their business goals were satisfied."
+          ],
+          "technologies": [
+            "Ruby on Rails",
+            "AWS",
+            "JQuery",
+            "LESS"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionName": "Projects",
+      "sectionData": [
+        {
+          "name": "Homepage",
+          "year": "2017",
+          "description": "This website is built with a React frontend and a Node backend. The resume data is loaded from a JSON file which can be easily updated and is displayed using the appropriate React components depending on type of section that is being rendered. It is hosted on AWS Elastic Beanstalk.",
+          "technologies": [
+            "Node.js",
+            "React",
+            "Elastic Beanstalk"
+          ]
+        },
+        {
+          "name": "Drone from scratch",
+          "year": "2015",
+          "description": "Self-taught Autodesk Inventor in order to create an original 3D model for a drone. Iterated on the design by using 3D printing as a rapid prototyping platform and also 3D printed the final design. Sourced motors, propellers, and sensors and connected all of these to an Intel Edison module. Soldered and assembled all components into final form and wrote simple linux drivers for the motor controllers.",
+          "technologies": [
+            "Linux",
+            "C/C++",
+            "3D Modeling",
+            "3D Printing"
+          ]
+        },
+        {
+          "name": "ARM core in System Verilog",
+          "year": "2014",
+          "description": "Implemented a subset of the ARM ISA in synthesizable SystemVerilog with a 5-stage pipeline, tournament branch prediction, and fine-grained multithreading.",
+          "technologies": [
+            "System Verilog",
+            "XILINX Toolchain",
+            "FPGA"
+          ]
+        },
+        {
+          "name": "LookingGlass",
+          "year": "2013",
+          "description": "Ideated, prototyped, and implemented a smart mirror capable of displaying the user’s calendar, e-mail, and twitter after recognizing them. Used local facial detection, cloud based facial recognition, and the Leap Motion.",
+          "technologies": [
+            "C",
+            "GTK",
+            "OpenCV"
+          ]
+        }
+      ]
+    }
+  ]
+}
