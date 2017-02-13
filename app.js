@@ -10,6 +10,9 @@ app.get('/', function (req, res) {
 app.use('/build', express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, function () {
-  console.log('App listening on port 3000!');
+var port = process.env.PORT || 3000;
+var env = process.env.NODE_ENV || "dev";
+
+app.listen(port, function () {
+  console.log(`${env} listening on ${port}...`);
 })

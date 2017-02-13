@@ -5,7 +5,6 @@ var gulp = require('gulp');
 var gulpIf = require("gulp-if");
 var source = require('vinyl-source-stream');
 var uglify = require("gulp-uglify");
-var watchify = require('watchify');
 
 function compile(env) {
   var isDev = !(process.env.NODE_ENV === "production");
@@ -23,7 +22,7 @@ function compile(env) {
   bundler.transform(babel);
 
   if (isDev) {
-    bundler.plugin(watchify);
+    bundler.plugin(require('watchify'));
     bundler.on("update", function() {
       console.log("-> File changes. Bundling...");
     });
