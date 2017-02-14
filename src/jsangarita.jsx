@@ -26,7 +26,15 @@ class JSAngarita extends React.Component {
                 I love learning and building products that make people's lives 
                 better and I work remotely from&nbsp;
                 <span className={css(styles.emphasis)}>Bogot&aacute;, 
-                Colombia</span>.
+                  Colombia</span> (
+                <a
+                  href="https://en.wikipedia.org/wiki/Eastern_Time_Zone"
+                  target="_blank"
+                  className={css(styles.estLink)}
+                >
+                  EST
+                </a>
+                ).
               </p>
               <button
                 className={css(styles.CTA)}
@@ -115,6 +123,13 @@ const styles = StyleSheet.create({
     fontWeight: StyleConstants.light,
     lineHeight: "28px",
     marginBottom: "40px",
+  },
+  estLink: {
+    color: "black",
+    textDecoration: "none",
+    ":hover": {
+      textDecoration: "underline",
+    }
   },
   emphasis: {
     fontWeight: StyleConstants.regular,
