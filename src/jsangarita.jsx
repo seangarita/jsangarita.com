@@ -14,7 +14,7 @@ class JSAngarita extends React.Component {
           <span className={css(styles.name)}>Juan Sebastian Angarita</span>
         </h1>
         <div className={css(styles.logoAndDescription)}>
-          <div className={css(styles.logo)}>
+          <div className={css(styles.logo, styles.mobileHidable)}>
             <img src="/img/logo.svg" />
           </div>
           <div className={css(styles.descriptionAndCTA)}>
@@ -55,7 +55,7 @@ class JSAngarita extends React.Component {
                 It would recognize your presence, know who you were, and show 
                 you your calendar, twitter, and news feeds!
               </div>
-              <div className={css(styles.blurb)}>
+              <div className={css(styles.blurb, styles.mobileHidable)}>
                 Another project I worked on and really enjoyed was building a 
                 drone from scratch. I 3D modeled it, 3D printed it, and wrote
                 some simple linux drivers. It flew for a couple of minutes...
@@ -91,10 +91,19 @@ class JSAngarita extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  mobileHidable: {
+    "@media (max-width: 960px)": {
+      display: "none",
+    },
+  },
   header1: {
     fontSize: "48px",
     margin: "50px auto",
-    width: StyleConstants.defaultWidth,
+    maxWidth: StyleConstants.defaultWidth,
+    "@media (max-width: 960px)": {
+      fontSize: "24px",
+      textAlign: "center",
+    },
   },
   hello: {
     fontWeight: StyleConstants.light,
@@ -107,7 +116,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     margin: "0 auto 100px auto",
-    width: StyleConstants.defaultWidth,
+    maxWidth: StyleConstants.defaultWidth,
+    "@media (max-width: 960px)": {
+      margin: "0 auto 50px auto",
+    },
   },
   logo: {
     flexBasis: 0,
@@ -117,12 +129,19 @@ const styles = StyleSheet.create({
     flexBasis: 0,
     flexGrow: 1,
     padding:"0 50px",
+    "@media (max-width: 960px)": {
+      padding:"0 25px",
+    },
   },
   description: {
     fontSize: "24px",
     fontWeight: StyleConstants.light,
     lineHeight: "28px",
     marginBottom: "40px",
+    "@media (max-width: 960px)": {
+      fontSize: "18px",
+      textAlign: "center",
+    },
   },
   estLink: {
     color: "black",
@@ -138,6 +157,7 @@ const styles = StyleSheet.create({
     backgroundColor: StyleConstants.yellow,
     border: "none",
     borderRadius: "8px",
+    display: "block",
     fontSize: "18px",
     fontWeight: StyleConstants.bold,
     height: "50px",
@@ -146,7 +166,11 @@ const styles = StyleSheet.create({
       backgroundColor: "black",
       color: StyleConstants.yellow,
       cursor: "pointer",
+    },
+    "@media (max-width: 960px)": {
+      margin: "auto",
     }
+
   },
   pageBreak: {
     marginBottom: "50px",
@@ -158,7 +182,7 @@ const styles = StyleSheet.create({
   blubContainer: {
     display: "flex",
     margin: "0 auto 0 auto",
-    width: StyleConstants.defaultWidth,
+    maxWidth: StyleConstants.defaultWidth,
   },
   blurb: {
     color: "white",
@@ -168,6 +192,9 @@ const styles = StyleSheet.create({
     lineHeight: "20px",
     padding: "40px 100px",
     textAlign: "center",
+    "@media (max-width: 960px)": {
+      padding: "40px 50px",
+    },
   },
   arrow: {
     display: "block",
@@ -176,14 +203,14 @@ const styles = StyleSheet.create({
   resume: {
     marginLeft: "auto",
     marginRight: "auto",
-    width: StyleConstants.defaultWidth,
+    maxWidth: StyleConstants.defaultWidth,
   },
   footer: {
     marginLeft: "auto",
     marginRight: "auto",
     paddingBottom: "20px",
     paddingTop: "20px",
-    width: StyleConstants.defaultWidth,
+    maxWidth: StyleConstants.defaultWidth,
   },
   footerContent: {
     textAlign: "center",
@@ -194,6 +221,11 @@ const styles = StyleSheet.create({
     fontWeight: StyleConstants.light,
     marginBottom: "50px",
     marginTop: "50px",
+    "@media (max-width: 960px)": {
+      fontSize: "18px",
+      marginBottom: "25px",
+      marginTop: "25px",
+    },
   },
   email: {
     color: "black",
@@ -205,11 +237,17 @@ const styles = StyleSheet.create({
     fontSize: "18px",
     fontWeight: StyleConstants.light,
     marginBottom: "10px",
+    "@media (max-width: 960px)": {
+      fontSize: "14px",
+    },
   },
   copyright: {
     color: StyleConstants.grey,
     fontSize: "18px",
     fontWeight: StyleConstants.light,
+    "@media (max-width: 960px)": {
+      fontSize: "14px",
+    },
   },
   red: {
     color: StyleConstants.red,

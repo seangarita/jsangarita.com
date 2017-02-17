@@ -46,7 +46,7 @@ class ExperienceItem extends React.Component {
               );
             })}
           </ul>
-          <div className={css(styles.technologies)}>
+          <div className={css(styles.technologies, styles.mobileHidable)}>
             {itemData.technologies.map((technology, idx) => {
               return (
                 <div
@@ -88,7 +88,7 @@ class ProjectItem extends React.Component {
         </div>
         <div className={css(styles.itemBody)}>
           <div className={css(styles.itemMain)}>{itemData.description}</div>
-          <div className={css(styles.technologies)}>
+          <div className={css(styles.technologies, styles.mobileHidable)}>
             {itemData.technologies.map((technology, idx) => {
               return (
                 <div
@@ -118,7 +118,7 @@ ProjectItem.propTypes = {
 class Resume extends React.Component {
   render() {
     const technologiesHeader =
-      <h1 className={css(styles.headerOne, styles.technologiesHeader)}>
+      <h1 className={css(styles.headerOne, styles.technologiesHeader, styles.mobileHidable)}>
         Technologies
       </h1>
 
@@ -164,6 +164,11 @@ Resume.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  mobileHidable: {
+    "@media (max-width: 960px)": {
+      display: "none",
+    },
+  },
   yellow: {
     color: StyleConstants.yellow,
   },
@@ -181,6 +186,9 @@ const styles = StyleSheet.create({
     display: "flex",
     marginTop: "50px",
     marginBottom: "30px",
+    "@media (max-width: 960px)": {
+      paddingLeft: "25px",
+    },
   },
   mainHeader: {
     flexGrow: 1,
@@ -191,6 +199,10 @@ const styles = StyleSheet.create({
   },
   item: {
     marginBottom: "30px",
+    "@media (max-width: 960px)": {
+      paddingLeft: "25px",
+      paddingRight: "25px",
+    },
   },
   itemName: {
     fontSize: "24px",
@@ -202,6 +214,9 @@ const styles = StyleSheet.create({
     fontSize: "18px",
     fontWeight: StyleConstants.regular,
     marginBottom: "20px",
+    "@media (max-width: 960px)": {
+      fontSize: "12px",
+    },
   },
   itemBody: {
     alignItems: "center",
