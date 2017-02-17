@@ -20,11 +20,11 @@ class JSAngarita extends React.Component {
           <div className={css(styles.descriptionAndCTA)}>
               <p className={css(styles.description)}>
                 I'm a <span className={css(styles.emphasis)}>Full Stack 
-                Software Engineer</span> with an MS &amp; BS in Electrical 
-                &amp; Computer Engineering from&nbsp;
+                Software Engineer</span> with an MS &amp; BS in Computer 
+                Engineering from&nbsp;
                 <span className={css(styles.emphasis)}>Carnegie Mellon</span>. 
                 I love learning and building products that make people's lives 
-                better and I work remotely from&nbsp;
+                better and I'm a US Citizen who  works remotely from&nbsp;
                 <span className={css(styles.emphasis)}>Bogot&aacute;, 
                   Colombia</span> (
                 <a
@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     fontStyle: "italic",
     fontWeight: StyleConstants.light,
+    lineHeight: "20px",
     padding: "40px 100px",
     textAlign: "center",
   },

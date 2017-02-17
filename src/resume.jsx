@@ -209,9 +209,9 @@ const styles = StyleSheet.create({
   },
   itemMain: {
     flex: 1,
-    fontSize: "18px",
+    fontSize: "14px",
     fontWeight: StyleConstants.regular,
-    lineHeight: "29px",
+    lineHeight: "24px",
   },
   technologies: {
     flexBasis: StyleConstants.technologiesWidth,
