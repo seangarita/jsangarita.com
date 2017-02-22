@@ -4,37 +4,27 @@
   "description": "jsangarita.com",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp",
-    "start": "npm run gulp && node app.js"
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "build-prod": "NODE_ENV=production npm run build",
+    "dev": "NODE_ENV=development ./node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "prod": "npm run build-prod && npm run start",
+    "start": "node app.js"
   },
   "author": "Juan Sebastian Angarita",
   "license": "UNLICENSED",
-  "devDependencies": {
-    "watchify": "3.9.0"
-  },
   "dependencies": {
     "aphrodite": "1.1.0",
-    "babel-plugin-transform-react-jsx": "6.22.0",
-    "babel-preset-latest": "6.22.0",
-    "babelify": "7.3.0",
-    "browserify": "14.0.0",
     "express": "4.14.1",
-    "gulp": "3.9.1",
-    "gulp-if": "2.0.2",
-    "gulp-uglify": "2.0.1",
     "moment": "2.17.1",
     "react": "15.4.2",
-    "react-dom": "15.4.2",
-    "vinyl-buffer": "1.0.0",
-    "vinyl-source-stream": "1.1.0"
+    "react-dom": "15.4.2"
   },
-  "babel": {
-    "plugins": [
-      "transform-react-jsx"
-    ],
-    "presets": [
-      "latest"
-    ]
+  "devDependencies": {
+    "babel-core": "6.23.1",
+    "babel-loader": "6.3.2",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-react": "6.23.0",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "2.4.1"
   }
 }

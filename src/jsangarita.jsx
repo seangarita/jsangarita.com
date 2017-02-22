@@ -19,13 +19,13 @@ class JSAngarita extends React.Component {
           </div>
           <div className={css(styles.descriptionAndCTA)}>
               <p className={css(styles.description)}>
-                I'm a <span className={css(styles.emphasis)}>Full Stack 
-                Software Engineer</span> with an MS &amp; BS in Computer 
+                I'm a <span className={css(styles.emphasis)}>Full Stack
+                Software Engineer</span> with an MS &amp; BS in Computer
                 Engineering from&nbsp;
-                <span className={css(styles.emphasis)}>Carnegie Mellon</span>. 
-                I love learning and building products that make people's lives 
+                <span className={css(styles.emphasis)}>Carnegie Mellon</span>.
+                I love learning and building products that make people's lives
                 better and I'm a US Citizen who  works remotely from&nbsp;
-                <span className={css(styles.emphasis)}>Bogot&aacute;, 
+                <span className={css(styles.emphasis)}>Bogot&aacute;,
                   Colombia</span> (
                 <a
                   href="https://en.wikipedia.org/wiki/Eastern_Time_Zone"
@@ -51,18 +51,18 @@ class JSAngarita extends React.Component {
           <div className={css(styles.pageBreakContent)}>
             <div className={css(styles.blubContainer)}>
               <div className={css(styles.blurb)}>
-                One of my favorite projects was a Smart Mirror I worked on. 
-                It would recognize your presence, know who you were, and show 
+                One of my favorite projects was a Smart Mirror I worked on.
+                It would recognize your presence, know who you were, and show
                 you your calendar, twitter, and news feeds!
               </div>
               <div className={css(styles.blurb, styles.mobileHidable)}>
-                Another project I worked on and really enjoyed was building a 
+                Another project I worked on and really enjoyed was building a
                 drone from scratch. I 3D modeled it, 3D printed it, and wrote
                 some simple linux drivers. It flew for a couple of minutes...
               </div>
             </div>
           </div>
-          <img src="/img/arrow.svg" className={css(styles.arrow)}/> 
+          <img src="/img/arrow.svg" className={css(styles.arrow)}/>
         </div>
         <div className={css(styles.resume)}>
           <Resume data={Data} />
@@ -78,7 +78,7 @@ class JSAngarita extends React.Component {
             </a>
           </div>
           <div className={css(styles.createdWithLove, styles.footerContent)}>
-            Created with <span className={css(styles.red)}>&hearts;</span> 
+            Created with <span className={css(styles.red)}>&hearts;</span>
             &nbsp;in Colombia
           </div>
           <div className={css(styles.copyright, styles.footerContent)}>
