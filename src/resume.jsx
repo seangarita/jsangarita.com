@@ -2,7 +2,8 @@ const Moment = require("moment");
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
 
-const StyleConstants = require("./styleConstants.js");
+const SharedStyles = require("./styles/sharedStyles.js");
+const StyleConstants = require("./styles/styleConstants.js");
 
 const PropTypes = React.PropTypes;
 
@@ -12,7 +13,7 @@ class ExperienceItem extends React.Component {
 
     const inputDateFormat = "MMM-YYYY";
     const outputDateFormat = "MMM' YY";
-    
+
     const startDate = Moment(itemData.startDate, inputDateFormat);
     const endDate = !!itemData.endDate
       ? Moment(itemData.endDate, inputDateFormat)
@@ -27,9 +28,19 @@ class ExperienceItem extends React.Component {
       `${!!endDate ? endDate.format(outputDateFormat) : "Present"} ` +
       durationString;
 
+    let itemName;
+    if (itemData.link) {
+      itemName =
+      <div className={css(styles.itemName, SharedStyles.textHoverAnimation)}>
+        <a href={itemData.link} target="_blank">{itemData.name}</a>
+      </div>
+    } else {
+      itemName = <div className={css(styles.itemName)}>{itemData.name}</div>
+    }
+
     return (
       <div className={css(styles.item)}>
-        <div className={css(styles.itemName)}>{itemData.name}</div>
+        {itemName}
         <div className={css(styles.itemInfoString)}>
           {`${itemData.jobTitle} / ${itemData.location} / ${timeString}`}
         </div>
@@ -46,7 +57,7 @@ class ExperienceItem extends React.Component {
               );
             })}
           </ul>
-          <div className={css(styles.technologies, styles.mobileHidable)}>
+          <div className={css(styles.technologies, SharedStyles.mobileHidable)}>
             {itemData.technologies.map((technology, idx) => {
               return (
                 <div
@@ -61,12 +72,13 @@ class ExperienceItem extends React.Component {
         </div>
       </div>
     );
-  } 
+  }
 }
 
 ExperienceItem.propTypes = {
   itemData: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    link: PropTypes.string,
     jobTitle: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
@@ -88,7 +100,7 @@ class ProjectItem extends React.Component {
         </div>
         <div className={css(styles.itemBody)}>
           <div className={css(styles.itemMain)}>{itemData.description}</div>
-          <div className={css(styles.technologies, styles.mobileHidable)}>
+          <div className={css(styles.technologies, SharedStyles.mobileHidable)}>
             {itemData.technologies.map((technology, idx) => {
               return (
                 <div
@@ -118,7 +130,12 @@ ProjectItem.propTypes = {
 class Resume extends React.Component {
   render() {
     const technologiesHeader =
-      <h1 className={css(styles.headerOne, styles.technologiesHeader, styles.mobileHidable)}>
+      <h1 className={
+        css(
+          styles.headerOne, styles.technologiesHeader,
+          SharedStyles.mobileHidable
+        )
+      }>
         Technologies
       </h1>
 
@@ -129,9 +146,9 @@ class Resume extends React.Component {
             <div key={idx}>
               <div className={css(styles.sectionHeader)}>
                 <h1 className={css(styles.headerOne, styles.mainHeader)}>
-                  <span className={css(styles.yellow)}>/</span>
-                  <span className={css(styles.blue)}>/</span>
-                  <span className={css(styles.red)}>/</span>
+                  <span className={css(SharedStyles.yellow)}>/</span>
+                  <span className={css(SharedStyles.blue)}>/</span>
+                  <span className={css(SharedStyles.red)}>/</span>
                   / {section.sectionName}
                 </h1>
                 {(idx === 0) ? technologiesHeader : null}
@@ -164,20 +181,6 @@ Resume.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  mobileHidable: {
-    "@media (max-width: 960px)": {
-      display: "none",
-    },
-  },
-  yellow: {
-    color: StyleConstants.yellow,
-  },
-  blue: {
-    color: StyleConstants.blue,
-  },
-  red: {
-    color: StyleConstants.red,
-  },
   headerOne: {
     fontSize: "36px",
     fontWeight: StyleConstants.bold,
@@ -205,6 +208,7 @@ const styles = StyleSheet.create({
     },
   },
   itemName: {
+    display: "inline-block",
     fontSize: "24px",
     fontWeight: StyleConstants.bold,
     marginBottom: "10px",

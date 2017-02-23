@@ -3,7 +3,8 @@ const {StyleSheet, css} = require("aphrodite");
 
 const Data = require("./data.json");
 const Resume = require("./resume.jsx");
-const StyleConstants = require("./styleConstants.js");
+const SharedStyles = require("./styles/sharedStyles.js");
+const StyleConstants = require("./styles/styleConstants.js");
 
 class JSAngarita extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class JSAngarita extends React.Component {
           <span className={css(styles.name)}>Juan Sebastian Angarita</span>
         </h1>
         <div className={css(styles.logoAndDescription)}>
-          <div className={css(styles.logo, styles.mobileHidable)}>
+          <div className={css(styles.logo, SharedStyles.mobileHidable)}>
             <img src="/img/logo.svg" />
           </div>
           <div className={css(styles.descriptionAndCTA)}>
@@ -37,7 +38,7 @@ class JSAngarita extends React.Component {
                 ).
               </p>
               <button
-                className={css(styles.CTA)}
+                className={css(styles.CTA, SharedStyles.miscHoverAnimation)}
                 onClick={() => {
                   location.href=
                     "mailto:hello@jsangarita.com?Subject=Let%27s%20chat!";
@@ -55,7 +56,7 @@ class JSAngarita extends React.Component {
                 It would recognize your presence, know who you were, and show
                 you your calendar, twitter, and news feeds!
               </div>
-              <div className={css(styles.blurb, styles.mobileHidable)}>
+              <div className={css(styles.blurb, SharedStyles.mobileHidable)}>
                 Another project I worked on and really enjoyed was building a
                 drone from scratch. I 3D modeled it, 3D printed it, and wrote
                 some simple linux drivers. It flew for a couple of minutes...
@@ -68,7 +69,13 @@ class JSAngarita extends React.Component {
           <Resume data={Data} />
         </div>
         <div className={css(styles.footer)}>
-          <div className={css(styles.letsChatFooter, styles.footerContent)}>
+          <div className={
+            css(
+              styles.letsChatFooter,
+              styles.footerContent,
+              SharedStyles.textHoverAnimation
+            )
+          }>
             Let's Chat!&nbsp;
             <a
               href="mailto:hello@jsangarita.com?Subject=Let%27s%20chat!"
@@ -78,7 +85,7 @@ class JSAngarita extends React.Component {
             </a>
           </div>
           <div className={css(styles.createdWithLove, styles.footerContent)}>
-            Created with <span className={css(styles.red)}>&hearts;</span>
+            Created with <span className={css(SharedStyles.red)}>&hearts;</span>
             &nbsp;in Colombia
           </div>
           <div className={css(styles.copyright, styles.footerContent)}>
@@ -91,11 +98,6 @@ class JSAngarita extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  mobileHidable: {
-    "@media (max-width: 960px)": {
-      display: "none",
-    },
-  },
   header1: {
     fontSize: "48px",
     margin: "50px auto",
@@ -249,9 +251,6 @@ const styles = StyleSheet.create({
       fontSize: "14px",
     },
   },
-  red: {
-    color: StyleConstants.red,
-  }
 });
 
 module.exports = JSAngarita;

@@ -12,5 +12,9 @@ module.exports = {
   bold: 700,
 
   defaultWidth: "960px",
-  technologiesWidth: "250px"
+  technologiesWidth: "250px",
+
+  // Animation
+  animationDuration: "0.5s",
+  animationEase: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
 }
