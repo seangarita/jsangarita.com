@@ -4,6 +4,7 @@ const {StyleSheet, css} = require("aphrodite");
 
 const SharedStyles = require("./styles/sharedStyles.js");
 const StyleConstants = require("./styles/styleConstants.js");
+const Tooltip = require("./tooltip.jsx");
 
 const PropTypes = React.PropTypes;
 
@@ -40,7 +41,10 @@ class ExperienceItem extends React.Component {
 
     return (
       <div className={css(styles.item)}>
-        {itemName}
+        <div className={css(styles.itemHeader)}>
+          {itemName}
+          {!!itemData.moreInfo ? <Tooltip text={itemData.moreInfo}/> : null}
+        </div>
         <div className={css(styles.itemInfoString)}>
           {`${itemData.jobTitle} / ${itemData.location} / ${timeString}`}
         </div>
@@ -83,6 +87,7 @@ ExperienceItem.propTypes = {
     location: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
     accomplishments: PropTypes.arrayOf(PropTypes.string).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
@@ -94,7 +99,9 @@ class ProjectItem extends React.Component {
 
     return (
       <div className={css(styles.item)}>
-        <div className={css(styles.itemName)}>{itemData.name}</div>
+        <div className={css(styles.itemHeader)}>
+          <div className={css(styles.itemName)}>{itemData.name}</div>
+        </div>
         <div className={css(styles.itemInfoString)}>
           {itemData.year}
         </div>
@@ -211,6 +218,9 @@ const styles = StyleSheet.create({
     display: "inline-block",
     fontSize: "24px",
     fontWeight: StyleConstants.bold,
+    verticalAlign: "middle",
+  },
+  itemHeader: {
     marginBottom: "10px",
   },
   itemInfoString: {
