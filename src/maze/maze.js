@@ -6,8 +6,7 @@ const {Cell, constants} = require("./cell.js");
 const PopulationConstant = 15;
 
 /**
- * Constructs a random maze-like structure which may have 0-any number of exits
- * depending on the chosen root.
+ * Constructs a random "corrupted" maze-like structure.
  */
 class Maze {
   constructor(width, height, center) {
