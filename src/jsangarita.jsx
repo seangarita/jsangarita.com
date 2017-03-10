@@ -1,6 +1,7 @@
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
 
+const {analytics} = require("./analytics.js");
 const Data = require("./data.json");
 const Resume = require("./resume.jsx");
 const SharedStyles = require("./styles/sharedStyles.js");
@@ -8,6 +9,19 @@ const StyleConstants = require("./styles/styleConstants.js");
 const Tree = require("./tree.jsx");
 
 class JSAngarita extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleScroll = this.onScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
   render() {
     return (
       <div>
@@ -95,6 +109,27 @@ class JSAngarita extends React.Component {
         </div>
       </div>
     )
+  }
+
+  onScroll(e) {
+    if (!this.hasScrolled) {
+      this.hasScrolled = true;
+      analytics.logScrolled();
+    }
+
+    const visibleBottomHeight =
+      Math.floor(window.pageYOffset + window.innerHeight);
+    const documentHeight =
+      Math.floor(
+        window.getComputedStyle(
+          document.querySelector("html")
+        ).height.slice(0, -2)
+      );
+
+    if (visibleBottomHeight >= documentHeight) {
+      window.removeEventListener("scroll", this.handleScroll);
+      analytics.logScrolledToEnd();
+    }
   }
 }
 

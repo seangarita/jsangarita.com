@@ -43,7 +43,8 @@ class ExperienceItem extends React.Component {
       <div className={css(styles.item)}>
         <div className={css(styles.itemHeader)}>
           {itemName}
-          {!!itemData.moreInfo ? <Tooltip text={itemData.moreInfo}/> : null}
+          {!!itemData.moreInfo &&
+            <Tooltip text={itemData.moreInfo} explaining={itemData.name} />}
         </div>
         <div className={css(styles.itemInfoString)}>
           {`${itemData.jobTitle} / ${itemData.location} / ${timeString}`}

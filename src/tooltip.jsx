@@ -1,6 +1,7 @@
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
 
+const {analytics} = require("./analytics.js");
 const SharedStyles = require("./styles/sharedStyles.js");
 const StyleConstants = require("./styles/styleConstants.js");
 
@@ -13,6 +14,9 @@ class Tooltip extends React.Component {
 
     tooltipEl.onmouseenter = () => {
       tooltipTextEl.className = css(styles.text, styles.visible);
+      if (this.props.explaining) {
+        analytics.logHoveredOverMoreInfo(this.props.explaining);
+      }
     };
 
     tooltipEl.onmouseleave = () => {
@@ -39,6 +43,7 @@ class Tooltip extends React.Component {
 
 Tooltip.propTypes = {
   text: PropTypes.string.isRequired,
+  explaining: PropTypes.string, // Text that tooltip is explaining.
 };
 
 const styles = StyleSheet.create({

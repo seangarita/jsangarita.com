@@ -1,6 +1,7 @@
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
 
+const {analytics} = require("./analytics.js");
 const Maze = require("./maze/maze.js");
 
 const PropTypes = React.PropTypes;
@@ -40,6 +41,7 @@ class Tree extends React.Component {
 
     this.maze.populateMaze().then(() => {
       clearInterval(interval);
+      analytics.logFinishedAnimation();
     });
   }
 
