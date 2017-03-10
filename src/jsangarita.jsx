@@ -5,6 +5,7 @@ const Data = require("./data.json");
 const Resume = require("./resume.jsx");
 const SharedStyles = require("./styles/sharedStyles.js");
 const StyleConstants = require("./styles/styleConstants.js");
+const Tree = require("./tree.jsx");
 
 class JSAngarita extends React.Component {
   render() {
@@ -15,8 +16,8 @@ class JSAngarita extends React.Component {
           <span className={css(styles.name)}>Juan Sebastian Angarita</span>
         </h1>
         <div className={css(styles.logoAndDescription)}>
-          <div className={css(styles.logo, SharedStyles.mobileHidable)}>
-            <img src="/img/logo.svg" />
+          <div className={css(SharedStyles.mobileHidable)}>
+            <Tree width={430} height={258} />
           </div>
           <div className={css(styles.descriptionAndCTA)}>
               <p className={css(styles.description)}>
@@ -122,10 +123,6 @@ const styles = StyleSheet.create({
     "@media (max-width: 960px)": {
       margin: "0 auto 50px auto",
     },
-  },
-  logo: {
-    flexBasis: 0,
-    flexGrow: 1,
   },
   descriptionAndCTA: {
     flexBasis: 0,
